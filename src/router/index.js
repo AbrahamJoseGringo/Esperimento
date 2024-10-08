@@ -1,28 +1,28 @@
-import { createRouter, createWebHistory } from 'vue-router';
-import HomeView from '../views/HomeView.vue';
-import LayoutFull from '@/layouts/LayoutFull.vue';
+import { createRouter, createWebHistory } from 'vue-router'
+import HomeView from '../views/HomeView.vue'
+import CarrinhoView from '../views/CarrinhoView.vue'
+import LoginView from '@/views/Auth/LoginView.vue'
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: '',
-      component: LayoutFull,
-      children: [
-        {
-          path: '',
-          name: 'Home',
-          component: HomeView,
-        },
-        {
-          path: '/login',
-          name: 'Login',
-          component: () => import('@/views/LoginView.vue'),
-        },
-      ],
+      name: 'home',
+      component: HomeView
     },
-  ],
-});
+    {
+      path: '/carrinho',
+      name: 'carrinho',
+      component: CarrinhoView
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: LoginView
+    }
+  ]
+})
 
 export default router
